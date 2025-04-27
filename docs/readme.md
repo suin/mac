@@ -32,7 +32,7 @@ macOSシステム設定をいい感じにするスクリプト。
 以下の単一コマンドで、ダウンロード、展開、環境設定ファイルの作成を自動的に行います：
 
 ```bash
-curl -L https://raw.githubusercontent.com/suin/mac/refs/heads/main/install.zsh | zsh
+curl -sL https://raw.githubusercontent.com/suin/mac/refs/heads/main/install.zsh | zsh
 ```
 
 このコマンドを実行すると、次に行うべき手順が表示されます。

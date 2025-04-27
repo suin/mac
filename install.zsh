@@ -4,7 +4,7 @@ echo "macOS設定自動化ツールのインストールを開始します..."
 
 # ZIPファイルをダウンロードして展開
 echo "リポジトリをダウンロードして展開しています..."
-curl -L https://github.com/suin/mac/archive/refs/heads/main.zip | bsdtar -xf-
+curl -sL https://github.com/suin/mac/archive/refs/heads/main.zip | bsdtar -xf-
 
 # 展開したディレクトリに移動
 cd mac-main
