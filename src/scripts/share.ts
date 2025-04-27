@@ -27,7 +27,8 @@ export default async function share(): Promise<void> {
   await $`sudo systemsetup -setremotelogin on`;
 
   // 画面共有有効化
-  await $`sudo launchctl enable system/com.apple.screensharing`;
+  await $`sudo launchctl enable system/com.apple.screensharing`.noThrow();
+  await $`sudo launchctl bootstrap system /System/Library/LaunchDaemons/com.apple.screensharing.plist`.noThrow();
   await $`sudo launchctl kickstart -kp system/com.apple.screensharing`;
 
   consola.success("共有設定が完了しました。");
