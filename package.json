@@ -1,0 +1,28 @@
+{
+  "name": "dotfiles2",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "imports": {
+    "#env": "./src/env.ts",
+    "#utils": "./src/utils.ts",
+    "#utils/*": "./src/utils/*.ts",
+    "#scripts/*": "./src/scripts/*.ts"
+  },
+  "devDependencies": {
+    "@tsconfig/bun": "^1.0.7",
+    "@tsconfig/strictest": "^2.0.5",
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@types/command-exists-promise": "^2.0.0",
+    "command-exists-promise": "^2.0.2",
+    "consola": "^3.4.2",
+    "dax-sh": "^0.43.0",
+    "zod": "^3.24.3",
+    "zod-validation-error": "^3.4.0"
+  }
+}
