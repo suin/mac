@@ -29,11 +29,13 @@ macOSシステム設定をいい感じにするスクリプト。
 
 ## インストールと使用方法
 
-### 1. リポジトリのクローン
+### 1. ZIPファイルのダウンロードと展開
+
+以下のコマンドでダウンロードと展開を一度に行えます：
 
 ```bash
-git clone https://github.com/suin/mac.git
-cd mac
+curl -L https://github.com/suin/mac/archive/refs/heads/main.zip | bsdtar -xf-
+cd mac-main
 ```
 
 ### 2. 環境設定ファイルの作成
