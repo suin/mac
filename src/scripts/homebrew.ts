@@ -1,6 +1,6 @@
 import { constants, access } from "node:fs/promises";
 import consola from "consola";
-import $ from "dax-sh";
+import $ from "#dax";
 
 // ディレクトリが存在するかどうかを確認する関数
 async function directoryExists(path: string): Promise<boolean> {

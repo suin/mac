@@ -1,5 +1,5 @@
 import consola from "consola";
-import $ from "dax-sh";
+import $ from "#dax";
 
 export default async function keyboard(): Promise<void> {
   consola.info("キーボード設定を構成しています...");

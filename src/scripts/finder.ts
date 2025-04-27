@@ -1,6 +1,6 @@
 import { homedir } from "node:os";
 import consola from "consola";
-import $ from "dax-sh";
+import $ from "#dax";
 
 export default async function finder(): Promise<void> {
   consola.info("Finderの設定を構成しています...");

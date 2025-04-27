@@ -1,5 +1,5 @@
 import consola from "consola";
-import $ from "dax-sh";
+import $ from "#dax";
 
 export default async function login(): Promise<void> {
   consola.info("ログイン画面の設定を構成しています...");
@@ -31,6 +31,5 @@ export default async function login(): Promise<void> {
 }
 
 if (import.meta.path === Bun.main) {
-  $.setPrintCommand(true);
   await login();
 }

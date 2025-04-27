@@ -1,7 +1,7 @@
 import { existsSync } from "node:fs";
 import { readFile } from "node:fs/promises";
 import consola from "consola";
-import $ from "dax-sh";
+import $ from "#dax";
 
 export default async function security(): Promise<void> {
   consola.info("セキュリティ設定を構成しています...");
@@ -38,6 +38,5 @@ async function enableTouchIdOnSudo(): Promise<void> {
 }
 
 if (import.meta.path === Bun.main) {
-  $.setPrintCommand(true);
   await security();
 }

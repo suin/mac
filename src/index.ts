@@ -1,5 +1,4 @@
 import consola from "consola";
-import $ from "dax-sh";
 import env from "#env";
 import devbox from "#scripts/devbox";
 import dock from "#scripts/dock";
@@ -16,8 +15,6 @@ import share from "#scripts/share";
 import sound from "#scripts/sound";
 import { askConfirmation } from "#utils";
 import keepSudo from "#utils/keep-sudo";
-
-$.setPrintCommand(true);
 
 // 環境変数
 consola.info("環境変数の設定内容:");

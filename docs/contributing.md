@@ -59,7 +59,7 @@ biome check --fix
 
 ```typescript
 import consola from "consola";
-import $ from "dax-sh";
+import $ from "#dax";
 
 export default async function yourScriptName(): Promise<void> {
   consola.info("処理を開始しています...");
@@ -72,7 +72,6 @@ export default async function yourScriptName(): Promise<void> {
 
 // 単独実行できるようにする
 if (import.meta.path === Bun.main) {
-  $.setPrintCommand(true);
   await yourScriptName();
 }
 ```

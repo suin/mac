@@ -1,5 +1,5 @@
 import consola from "consola";
-import $ from "dax-sh";
+import $ from "#dax";
 
 type Category = { readonly text: string };
 type Action = {
@@ -198,6 +198,5 @@ export default async function keyboardShortcutKeys(): Promise<void> {
 }
 
 if (import.meta.path === Bun.main) {
-  $.setPrintCommand(true);
   await keyboardShortcutKeys();
 }

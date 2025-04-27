@@ -1,5 +1,5 @@
 import consola from "consola";
-import $ from "dax-sh";
+import $ from "#dax";
 import env from "#env";
 
 export default async function share(): Promise<void> {

@@ -1,5 +1,5 @@
 import consola from "consola";
-import $ from "dax-sh";
+import $ from "#dax";
 
 export default async function sound(): Promise<void> {
   consola.info("サウンド設定を構成しています...");
