@@ -29,38 +29,13 @@ macOSシステム設定をいい感じにするスクリプト。
 
 ## インストールと使用方法
 
-### 1. ZIPファイルのダウンロードと展開
-
-以下のコマンドでダウンロードと展開を一度に行えます：
+以下の単一コマンドで、ダウンロード、展開、環境設定ファイルの作成を自動的に行います：
 
 ```bash
-curl -L https://github.com/suin/mac/archive/refs/heads/main.zip | bsdtar -xf-
-cd mac-main
+curl -L https://raw.githubusercontent.com/suin/mac/refs/heads/main/install.zsh | zsh
 ```
 
-### 2. 環境設定ファイルの作成
-
-`.env.dist`ファイルをコピーして`.env`ファイルを作成し、必要に応じて設定を変更します。
-
-```bash
-cp .env.dist .env
-```
-
-`.env`ファイルを開き、`MACHINE_NAME`などの設定を自分の環境に合わせて変更します。
-
-### 3. スクリプトの実行
-
-以下のコマンドを実行して、設定を適用します：
-
-```bash
-./index.zsh
-```
-
-スクリプトは管理者権限（sudo）を要求します。パスワードを入力してください。
-
-### 4. 再起動
-
-すべての設定変更を完全に適用するために、macOSを再起動することをお勧めします。
+このコマンドを実行すると、次に行うべき手順が表示されます。
 
 ## その他
 
