@@ -23,9 +23,9 @@ console.dir(env, { depth: null });
 // 権限確認
 consola.warn(
   "システム設定を変更するには、Terminalにフルディスクアクセス権限が必要です。",
-);
-consola.info(
   "システム環境設定 > プライバシーとセキュリティ > フルディスクアクセス で確認できます。",
+  "以下のコマンドでフルディスクアクセス設定を直接開けます：",
+  'open "x-apple.systempreferences:com.apple.preference.security?Privacy_AllFiles"',
 );
 
 const answer = await askConfirmation(
