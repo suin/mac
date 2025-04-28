@@ -6,7 +6,6 @@
   "imports": {
     "#dax": "./src/dax.ts",
     "#env": "./src/env.ts",
-    "#utils": "./src/utils.ts",
     "#utils/*": "./src/utils/*.ts",
     "#scripts/*": "./src/scripts/*.ts"
   },

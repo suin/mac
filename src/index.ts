@@ -13,28 +13,20 @@ import screensaver from "#scripts/screensaver";
 import security from "#scripts/security";
 import share from "#scripts/share";
 import sound from "#scripts/sound";
-import { askConfirmation } from "#utils";
 import keepSudo from "#utils/keep-sudo";
+import { checkFullDiskAccess } from "#utils/check-full-disk-access";
 
 // 環境変数
 consola.info("環境変数の設定内容:");
 console.dir(env, { depth: null });
 
 // 権限確認
-consola.warn(
-  "システム設定を変更するには、Terminalにフルディスクアクセス権限が必要です。",
-  "システム環境設定 > プライバシーとセキュリティ > フルディスクアクセス で確認できます。",
-  "以下のコマンドでフルディスクアクセス設定を直接開けます：",
-  'open "x-apple.systempreferences:com.apple.preference.security?Privacy_AllFiles"',
-);
-
-const answer = await askConfirmation(
-  "Terminalにフルディスクアクセス権限を設定済みですか？ (y/N): ",
-);
-
-if (!answer) {
-  consola.error(
-    "設定を中止しました。Terminalにフルディスクアクセス権限を付与してから再実行してください。",
+if (!(await checkFullDiskAccess())) {
+  consola.warn(
+    "システム設定を変更するには、Terminalにフルディスクアクセス権限が必要です。",
+    "システム環境設定 > プライバシーとセキュリティ > フルディスクアクセス で確認できます。",
+    "以下のコマンドでフルディスクアクセス設定を直接開けます：",
+    'open "x-apple.systempreferences:com.apple.preference.security?Privacy_AllFiles"',
   );
   process.exit(1);
 }
