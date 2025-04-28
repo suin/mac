@@ -25,13 +25,12 @@ import { promisify } from "node:util";
  * @throws {Error} If the initial sudo authentication fails
  */
 export default async function keepSudo({
-  interval = 60_000,
+  interval = 1000, // 1 second
   beforeExecSudo = () => {},
 }: KeepSudoOptions = {}): Promise<StopSudo> {
-  if (isSudoing()) {
-    return () => Promise.resolve();
+  if (!isSudoing()) {
+    await beforeExecSudo();
   }
-  await beforeExecSudo();
   try {
     await new Promise((resolve) => setTimeout(resolve, 500));
     await execSudo();
@@ -98,4 +97,20 @@ const execAsync = promisify(exec);
 export function isSudoing(): boolean {
   const result = spawnSync("sudo", ["-n", "true"], { stdio: "ignore" });
   return result.status === 0;
+}
+
+if (import.meta.path === Bun.main) {
+  // Example usage
+  const stopSudo = await keepSudo();
+  console.log("Sudo privileges maintained. Press Ctrl+C to stop.");
+  process.on("SIGINT", async () => {
+    console.log("Stopping sudo maintenance...");
+    await stopSudo();
+    process.exit(0);
+  });
+  const interval = 5 * 60 * 1000 + 10 * 1000; // 5 minutes 10 seconds
+  setInterval(() => {
+    process.stdout.write("Sudo privileges are still active. ");
+    spawnSync("sudo", ["date"], { stdio: "inherit" });
+  }, interval);
 }
